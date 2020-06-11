@@ -69,7 +69,7 @@ class PublisherController extends Controller
       $this->validate($request, [
         'title' => 'required'
       ]);
-      
+
       // prepare empty object
       $publisher = Publisher::findOrfail($id);
 
