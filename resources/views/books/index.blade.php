@@ -1,4 +1,10 @@
-<h1 style="color: green">Books Index</h1>
+@extends('layouts.layout', [
+  'title' => 'List of Books'
+])
+
+@section('content')
+
+<h1>Books Index</h1>
 
 @foreach($books as $b)
 <div>
@@ -15,3 +21,5 @@
   <a href="books/{{ $b->id}}">Read more...</a>
 </div>
 @endforeach
+
+@endsection

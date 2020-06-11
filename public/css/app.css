@@ -19,19 +19,19 @@ nav {
 }
 
 nav a {
-    width: 0 auto;
-    margin: 5px;
-    padding: 5px;
-    color: olivedrab;
-    text-decoration: none;
-    border: 1px solid grey;
-    border-radius: 5px;
-    text-align: center;
+  width: 0 auto;
+  margin: 5px;
+  padding: 5px;
+  color: olivedrab;
+  text-decoration: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-align: center;
 }
 
 nav a:hover {
-    color: white;
-    background-color: olivedrab;
+  color: white;
+  background-color: olivedrab;
 }
 
 li {
@@ -45,4 +45,4 @@ h1 {
 h2 {
   color: darkcyan;
 }
-
+/*# sourceMappingURL=app.css.map*/
