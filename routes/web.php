@@ -45,7 +45,7 @@ Route::get('/publishers', 'PublisherController@index')->name('publishers.index')
 Route::get('/publishers/create', 'PublisherController@create')->name('publishers.create');
 Route::post('/publishers', 'PublisherController@store')->name('publishers.store');
 Route::get('/publishers/{id}/edit', 'PublisherController@edit')->name('publishers.edit');
-Route::post('/publishers/{id}', 'PublisherController@update')->name('publishers.update');
+Route::put('/publishers/{id}', 'PublisherController@update')->name('publishers.update');
 
 Route::get('/publishers/{publisher_id}', 'PublisherController@show')->name('publishers.show');
 
