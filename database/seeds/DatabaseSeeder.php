@@ -11,10 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // '../../storage/books.json'
-
-        $data = json_decode( file_get_contents( storage_path('books.json') ) );
-
-        dd($data);
+        // $this->call(UserSeeder::class);
     }
 }
