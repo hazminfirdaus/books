@@ -30,6 +30,8 @@
     <input type="submit" value="save">
     <br><br>
 
+    </form>
+
     {{-- success message --}}
     @if (Session::has('success_message'))
  
@@ -38,6 +40,7 @@
     </div>
     @endif
 
+    {{-- error message --}}
     @if (count($errors) > 0)
     <div class="alert alert-danger">
         <ul>
@@ -47,8 +50,6 @@
         </ul>
     </div>
     @endif
-
-</form>
 
 @endsection
 

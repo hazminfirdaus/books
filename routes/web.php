@@ -33,6 +33,8 @@ Route::post('/books', 'BookController@store');
 Route::get('/books/{book_id}/edit', 'BookController@edit');
 Route::post('/books/{book_id}', 'BookController@update');
 
+Route::post('/books/{book_id}/review', 'BookController@review')->name('books.review');
+
 Route::get('/books/{book_id}', 'BookController@show');//->where('book_id', '[0-9]+')
 
 

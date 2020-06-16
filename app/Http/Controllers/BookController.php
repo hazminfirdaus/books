@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Book;
+use App\Review;
 
 class BookController extends Controller
 {
@@ -87,5 +87,28 @@ class BookController extends Controller
 
       return redirect('/books/' . $book->id);
     }
+
+    public function review(Request $request, $book_id)
+    {
+        $this->validate($request, [
+            'text' => 'required|max:255',
+            'rating' => 'nullable|numeric|between:0,100'
+        ],  [
+            'rating.between' => 'That number is outside of bound.',
+            'text.required' => 'A review without a text does not make sense.',
+            'text.max' => 'Max text is 255 characters.'
+        ]);
+        
+        $review = new Review;
+
+        $review->book_id  = $book_id;
+        $review->text     = $request->input('text');
+        $review->rating   = $request->input('rating');
     
+        $review->save();
+
+        session()->flash('success_message', 'Review was saved. Thank you!');
+    
+        return redirect()->action('BookController@show', [ $book_id ]);
+    } 
 }

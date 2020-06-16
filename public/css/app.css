@@ -10,12 +10,15 @@ body {
   margin: 0 auto;
   width: 500px;
   text-align: center;
+  background-color: lightgoldenrodyellow;
 }
 
 nav {
   display: flex;
+  justify-content: center;
   text-align: center;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 nav a {
@@ -36,10 +39,8 @@ nav a:hover {
 
 li {
   display: inline;
-}
-
-h1 {
-  color: olive;
+  text-align: center;
+  align-content: center;
 }
 
 h2 {
