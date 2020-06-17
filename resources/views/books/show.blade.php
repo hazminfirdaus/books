@@ -21,11 +21,14 @@
         <br>
     </div>
 
-
     <div>  
+
+@auth
         <form class="review-form" method="post" action="{{ route('books.review', [ $book->id ]) }}">
 
             @csrf
+
+            <h2>Add a review as {{ auth()->user()->name }}:</h2>
 
             <div class="form-group">
                 Review: <br>
@@ -64,6 +67,18 @@
     </div>
     @endif
 
+@else
+
+    <h2>Please log in to submit a review.</h2>
+
+@endauth
+
+@guest
+    
+<p>You can login here: <a href="{{ route('login') }}">Login</a></p>
+
+@endguest
+
     <div class="reviews">
 
             <h2>Reviews</h2>
@@ -72,6 +87,17 @@
     
                 <h3>{{ $review->text }}</h3>
                 <div>Rating: {{ $review->rating }}</div>
+
+                @can('delete_reviews')
+
+                    <form action="{{ route('reviews.delete', [ $review->id ]) }}" method="post">
+                        @method('delete')
+                        @csrf
+
+                        <input type="submit" value="Delete">
+                    </form>
+
+                @endcan
                 
             @endforeach
 

@@ -60,3 +60,12 @@ Route::post('/add-to-cart', 'CartController@add');
 
 
 Route::get('/authors', 'AuthorController@index')->name('authors.index');
+
+Route::delete('/reviews/{review_id}', 'ReviewController@delete')->name('reviews.delete')->middleware('can:delete_reviews');
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home.index');
