@@ -1,14 +1,24 @@
-<h1>Cart</h1>
+@extends('layouts.layout', [
+    'title' => 'Cart'
+])
 
-@foreach($cartItems as $cartItem)
-<div>
+@section('content')
 
-  <h2>{{ $cartItem->book->title}}</h2>
-  <h3>{{ $cartItem->book->publisher->title}}</h3>
+    <h1>Cart</h1>
 
-  <p>Count: {{ $cartItem->count }}</p>
+    @foreach($cartItems as $cartItem)
 
-</div>
-@endforeach
+        <div>
+
+            <h2>{{ $cartItem->book->title}}</h2>
+            <h3>{{ $cartItem->book->publisher->title}}</h3>
+
+            <p>Count: {{ $cartItem->count }}</p>
+
+        </div>
+
+    @endforeach
 
 <button>Checkout</button>
+
+@endsection

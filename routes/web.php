@@ -53,6 +53,10 @@ Route::get('/publishers/{publisher_id}', 'PublisherController@show')->name('publ
 
 
 
-Route::get('/cart', 'CartController@index');
+Route::get('/cart', 'CartController@index')->name('cart.index');
 
 Route::post('/add-to-cart', 'CartController@add');
+
+
+
+Route::get('/authors', 'AuthorController@index')->name('authors.index');
