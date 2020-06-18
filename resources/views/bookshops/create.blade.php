@@ -14,17 +14,33 @@
 
         <br>
         Name:<br><br>
-        <input type="text" name="name" value="{{ old('name', $bookshop->name) }}">
+        <input type="text" name="name" value="{{ old('name') }}">
 
         <br><br>
         City:<br><br>
-        <input type="text" name="city" value="{{ old('city', $bookshop->city) }}">
+        <input type="text" name="city" value="{{ old('city') }}">
+        <br><br>
+
+        <div>
+
+            <label>Available books:</label><br><br>
+            <select name="books[]" id="books" multiple>
+
+                @foreach($books as $book)
+
+                    <option value="{{ $book->id }}">{{ $book->title }}</option>
+
+                @endforeach
+
+            </select>
+
+        </div>
 
     </label>
     <br>
     <br>
 
-    <input type="submit" value="save">
+    <input type="submit" value="Save">
     <br><br>
 
     </form>

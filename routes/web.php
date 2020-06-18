@@ -77,3 +77,8 @@ Route::post('/bookshops', 'BookshopController@store')->name('bookshops.store');
 
 Route::get('/bookshops', 'BookshopController@index')->name('bookshops.index');
 Route::get('/bookshops/{bookshop_id}', 'BookshopController@show')->name('bookshops.show');
+
+
+Route::post('/bookshops/{bookshop_id}/add-book', 'BookshopController@addBook');
+
+Route::post('/bookshops/{bookshop_id}/remove-book', 'BookshopController@removeBook');

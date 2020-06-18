@@ -10,7 +10,11 @@
 
         <h3>{{ $bookshop->name }}</h3>
         <h4>City: {{ $bookshop->city }}</h4>
-        <br><br>
+
+        <a href="bookshops/{{ $bookshop->id }}">Read more</a>
+        <br>
+        <br>
+        <br>
         
     @endforeach
 
