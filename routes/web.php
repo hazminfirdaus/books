@@ -73,7 +73,7 @@ Route::get('/home', 'HomeController@index')->name('home.index');
 
 
 Route::get('/bookshop/create', 'BookshopController@create')->name('bookshops.create');
-Route::post('/bookshops/store', 'BookshopController@store')->name('bookshops.store');
+Route::post('/bookshops', 'BookshopController@store')->name('bookshops.store');
 
 Route::get('/bookshops', 'BookshopController@index')->name('bookshops.index');
-
+Route::get('/bookshops/{bookshop_id}', 'BookshopController@show')->name('bookshops.show');

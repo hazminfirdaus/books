@@ -31,19 +31,22 @@ class BookshopController extends Controller
 
       $bookshop = new Bookshop;
 
-      // fill the object from request
       $bookshop->name = $request->input('name');
       $bookshop->city = $request->input('city');
 
-      // save
       $bookshop->save();
 
-      // flash success message (provide it to the next request)
       session()->flash('success_message', 'The bookshop was successfully saved.');
 
-      // redirect to edit form, supplying the id of publisher to be used in the URL
       return redirect()->route('bookshops.index');
 
+    }
+
+    public function show($bookshop_id)
+    {
+        $bookshop = Bookshop::with('books')->findOrFail($bookshop_id); //to get particular bookshop with books
+
+        return view('bookshops.show', compact('bookshop'));
     }
 
 }

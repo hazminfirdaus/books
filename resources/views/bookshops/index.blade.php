@@ -4,14 +4,16 @@
 
 @section('content')
 
-    <h2>List of Bookshop</h2>
+    <h2>List of Bookshops</h2>
 
     @foreach ($bookshops as $bookshop)
 
         <h3>{{ $bookshop->name }}</h3>
-        <p>{{ $bookshop->city }}</p>
+        <h4>City: {{ $bookshop->city }}</h4>
         <br><br>
         
     @endforeach
+
+    <a href={{ 'bookshop/create' }}>Create New</a>
 
 @endsection

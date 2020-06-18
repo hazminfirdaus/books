@@ -8,6 +8,8 @@
 
     <a href="{{ route('authors.index') }}">Authors</a>
 
+    <a href="{{ route('bookshops.index') }}">Bookshops</a>
+
     <a href="{{ route('login') }}">Login</a>
 
     <a href="{{ route('cart.index') }}">Cart</a>

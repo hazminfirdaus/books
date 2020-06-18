@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Review;
 use App\Author;
+use App\Bookshop;
 
 class Book extends Model
 {
@@ -28,5 +29,10 @@ class Book extends Model
     public function authors()
     {
         return $this->belongsToMany(Author::class);
+    }
+
+    public function bookshops()
+    {
+        return $this->belongsToMany(Bookshop::class);
     }
 }
