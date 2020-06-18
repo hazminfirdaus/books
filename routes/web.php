@@ -69,3 +69,11 @@ Route::delete('/reviews/{review_id}', 'ReviewController@delete')->name('reviews.
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home.index');
+
+
+
+Route::get('/bookshop/create', 'BookshopController@create')->name('bookshops.create');
+Route::post('/bookshops/store', 'BookshopController@store')->name('bookshops.store');
+
+Route::get('/bookshops', 'BookshopController@index')->name('bookshops.index');
+
