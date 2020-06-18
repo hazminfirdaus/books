@@ -32,11 +32,11 @@ class AuthorController extends Controller
         ->where('name', 'like', 'G%')
         ->get();
 
-        $result = Author::query()
-        ->with('books')
-        ->limit(10)
-        ->where('name', 'like', 'G%')
-        ->count();
+        // $result = Author::query()
+        // ->with('books')
+        // ->limit(10)
+        // ->where('name', 'like', 'G%')
+        // ->count();
 
         // dd($result);
 
