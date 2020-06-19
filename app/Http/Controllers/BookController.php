@@ -12,7 +12,9 @@ class BookController extends Controller
     {
       // $books = DB::select('SELECT * FROM `books`');
 
-      $books = Book::all(); //select all
+    //   $books = Book::all(); //select all
+
+      $books = Book::paginate(5);
 
       return view('books.index', compact('books'));
 

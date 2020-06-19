@@ -86,3 +86,11 @@ Route::post('/bookshops/{bookshop_id}/add-book', 'BookshopController@addBook');
 
 Route::post('/bookshops/{bookshop_id}/remove-book', 'BookshopController@removeBook');
 
+
+
+Route::get('/reservations', 'ReservationController@index');
+
+Route::get('/reservations/create', 'ReservationController@create')->middleware('auth');
+Route::post('reservations', 'ReservationController@store')->middleware('auth');
+
+

@@ -59,3 +59,15 @@ h2 {
         width: 25%;
     }
 }
+
+.table {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    background-color: seagreen;
+    padding-left: 150px;
+}
+
+th {
+    padding-left: 50px;
+}
