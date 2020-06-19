@@ -31,5 +31,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->id == 1; // only user with id 1 will return true
 
         });
+
+        Gate::define('admin', function ($user) {
+            // is the user logged in admin?
+            return $user->id == 1;
+        });
     }
 }

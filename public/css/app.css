@@ -8,7 +8,7 @@ html {
 
 body {
   margin: 0 auto;
-  width: 500px;
+  width: 100vw;
   text-align: center;
   background-color: lightgoldenrodyellow;
 }
@@ -45,5 +45,17 @@ li {
 
 h2 {
   color: darkcyan;
+}
+
+.related-title {
+  color: seagreen;
+}
+
+.related-books {
+  display: flex;
+  flex-direction: row;
+}
+.related-books > div {
+  width: 25%;
 }
 /*# sourceMappingURL=app.css.map*/

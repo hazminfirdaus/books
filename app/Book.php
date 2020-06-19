@@ -38,6 +38,6 @@ class Book extends Model
 
     public function relatedBooks()
     {
-        return $this->belongsToMany(Book::class);
+        return $this->belongsToMany(Book::class, 'related_books', 'book_id', 'related_id');
     }
 }

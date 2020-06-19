@@ -35,6 +35,9 @@ Route::post('/books/{book_id}', 'BookController@update');
 
 Route::post('/books/{book_id}/review', 'BookController@review')->name('books.review');
 
+Route::post('/books/{book_id}/add-related-book', 'BookController@addRelatedBook')->middleware('can:admin');
+Route::post('/books/{book_id}/remove-related-book', 'BookController@removeRelatedBook')->middleware('can:admin');
+
 Route::get('/books/{book_id}', 'BookController@show');//->where('book_id', '[0-9]+')
 
 
@@ -82,3 +85,4 @@ Route::get('/bookshops/{bookshop_id}', 'BookshopController@show')->name('booksho
 Route::post('/bookshops/{bookshop_id}/add-book', 'BookshopController@addBook');
 
 Route::post('/bookshops/{bookshop_id}/remove-book', 'BookshopController@removeBook');
+

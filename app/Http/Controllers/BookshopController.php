@@ -76,5 +76,4 @@ class BookshopController extends Controller
 
         return redirect(action('BookshopController@show', $bookshop->id));
     }
-    
 }

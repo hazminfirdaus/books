@@ -39,10 +39,13 @@ class BookController extends Controller
       // return Book::where('id','=', $book_id)->get();
       // return Book::where('id','>', $book_id)->get();
 
-      $book =Book::findOrFail($book_id); // return abort404 automatically if the id isn't exist
+      $book = Book::findOrFail($book_id); // return abort404 automatically if the id isn't exist
+
+      $alreadyRelatedIds = $book->relatedBooks->pluck('id');
+      $nonRelatedBooks = Book::whereNotIn('id', $alreadyRelatedIds)->get();
 
       // return $book;
-      return view('books.show', compact('book'));
+      return view('books.show', compact('book', 'nonRelatedBooks'));
     }
 
 
@@ -63,7 +66,7 @@ class BookController extends Controller
       $book->save();
 
       // return $request->all();
-      return redirect('/books/' . $book->id);
+      return redirect('/books' . $book->id);
     }
 
     public function edit($book_id)
@@ -111,4 +114,26 @@ class BookController extends Controller
     
         return redirect()->action('BookController@show', [ $book_id ]);
     } 
+
+    public function addRelatedBook($book_id, Request $request)
+    {
+        $book = Book::findOrFail($book_id);
+
+        $related_id = $request->input('related_id');
+        $book->relatedBooks()->attach($related_id);
+
+        return redirect(action('BookController@show', $book->id));
+    }
+
+    public function removeRelatedBook($book_id, Request $request)
+    {
+        $book = Book::findOrFail($book_id);
+
+        $related_id = $request->input('related_id');
+        $book->relatedBooks()->detach($related_id);
+
+        return redirect(action('BookController@show', $book->id));
+    }
+
+
 }

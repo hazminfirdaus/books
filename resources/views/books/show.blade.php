@@ -21,6 +21,43 @@
         <br>
     </div>
 
+    @if($book->relatedBooks->count() > 0)
+        <h3 class="related-title">Related books</h3>
+
+        @can('admin')
+            <form action="{{ action('BookController@addRelatedBook', $book->id) }}" method="post">
+                @csrf
+                <select name="related_id" id="book_id">
+                    @foreach($nonRelatedBooks as $notRelated)
+                        <option value="{{ $notRelated->id }}">{{ $notRelated->title }}</option>
+                    @endforeach
+                </select>
+                <button type="submit">Add</button>
+            </form>
+        @endcan
+
+        <div class="related-books">
+            @foreach($book->relatedBooks as $related)
+                <div>
+                    <h3>{{ $related->title }}</h3>
+                    <p>{{ $related->authors }}</p>
+                    <img src="{{ $related->image }}">
+                    
+                    @can('admin')
+                        <form action="{{ action('BookController@removeRelatedBook', $book->id) }}" method="post">
+                            @csrf
+                            <input type="hidden" name="related_id" value="{{ $related->id }}">
+                            <button type="submit">remove</button>
+                        </form>
+                    @endcan
+                </div>
+            @endforeach
+        </div>
+    @else
+        <p>There are no related books :/ </p>
+    @endif
+        
+
     <div>  
 
 @auth
