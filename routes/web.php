@@ -94,3 +94,7 @@ Route::get('/reservations/create', 'ReservationController@create')->middleware('
 Route::post('reservations', 'ReservationController@store')->middleware('auth');
 
 
+Route::get('upload', 'UploadController@form');
+Route::post('upload', 'UploadController@upload');
+
+
