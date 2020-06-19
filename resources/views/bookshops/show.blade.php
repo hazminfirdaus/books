@@ -4,12 +4,13 @@
 
 @section('content')
 
-        <h3>{{ $bookshop->name }}</h3>
+        <h2>{{ $bookshop->name }}</h2>
         <h4>City: {{ $bookshop->city }}</h4>
 
         @foreach($bookshop->books as $book)
 
             <h4>{{ $book->title }}</h4>
+            <p>{{ $book->pivot->stock }} pcs.</p>
             <img src="{{ $book->image }}">
             <br><br>
 
@@ -19,6 +20,20 @@
 
                 <input type="hidden" name="book_id" value="{{ $book->id }}">
                 <button type="submit">Remove</button>
+            <br>
+            <br>
+
+            </form>
+
+            <form action="{{ action('BookshopController@updateBookStock', $bookshop->id)}}" method="post">
+
+                @csrf
+
+                <input type="hidden" name="book_id" value="{{ $book->id }}">
+                <input type="number" name="stock" value="{{ $book->pivot }}">
+                <button type="submit">Update</button>
+            <br>
+            <br>
 
             </form>
 
@@ -33,6 +48,10 @@
                     <option value="{{ $book->id }}">{{ $book->title }}</option>
                 @endforeach
             </select>
+            <br><br>
+
+            <label>No. of Book:</label>
+                <input type="number" name="stock" value="{{ $book->pivot }}">
             <br>
             <br>
 

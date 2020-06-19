@@ -83,7 +83,7 @@ Route::get('/bookshops/{bookshop_id}', 'BookshopController@show')->name('booksho
 
 
 Route::post('/bookshops/{bookshop_id}/add-book', 'BookshopController@addBook');
-
+Route::post('/bookshops/{bookshop_id}/update-book-stock', 'BookshopController@updateBookStock');
 Route::post('/bookshops/{bookshop_id}/remove-book', 'BookshopController@removeBook');
 
 

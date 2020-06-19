@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStockColumnToBookBookshopsTable extends Migration
+class AddStockColumnToBookBookshopTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddStockColumnToBookBookshopsTable extends Migration
      */
     public function up()
     {
-        Schema::table('book_bookshops', function (Blueprint $table) {
+        Schema::table('book_bookshop', function (Blueprint $table) {
             $table->unsignedInteger('stock')->nullable();
         });
     }
@@ -25,8 +25,8 @@ class AddStockColumnToBookBookshopsTable extends Migration
      */
     public function down()
     {
-        Schema::table('book_bookshops', function (Blueprint $table) {
-            //
+        Schema::table('book_bookshop', function (Blueprint $table) {
+            $table->dropColumn('stock');
         });
     }
 }

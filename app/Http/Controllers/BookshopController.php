@@ -62,7 +62,8 @@ class BookshopController extends Controller
         $bookshop = Bookshop::findOrFail($bookshop_id);
 
         $book_id = $request->input('book_id');
-        $bookshop->books()->attach($book_id);
+        $stock = $request->input('stock');
+        $bookshop->books()->attach($book_id, [ 'stock' => $stock]);
 
         return redirect(action('BookshopController@show', $bookshop->id));
     }
@@ -73,6 +74,19 @@ class BookshopController extends Controller
 
         $book_id = $request->input('book_id');
         $bookshop->books()->detach($book_id);
+
+        return redirect(action('BookshopController@show', $bookshop->id));
+    }
+
+    public function updateBookStock($bookshop_id, Request $request)
+    {
+        // return $request->all();
+
+        $bookshop = Bookshop::findOrFail($bookshop_id);
+        
+        $book_id = $request->input('book_id');
+        $stock = $request->input('stock');
+        $bookshop->books()->updateExistingPivot($book_id, [ 'stock' => $stock]);
 
         return redirect(action('BookshopController@show', $bookshop->id));
     }
